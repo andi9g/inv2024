@@ -27,13 +27,22 @@
    </style>
 </head>
 <body>
-   <h2>LAPORAN PENDAPATAN</h2>
-   <p>
-      <i>
-
-         {{ $tanggalawal->isoFormat("dddd, DD MMMM Y") }} s/d {{ $tanggalakhir->isoFormat("dddd, DD MMMM Y") }}
-      </i>
-   </p>
+   <table width="100%" style="margin-bottom: 10px">
+      <tr>
+         <td width="50px">
+            <img src="{{ url('gambar', ['logokp.jpeg']) }}" width="100%" alt="">
+         </td>
+         <td>
+            <h2>LAPORAN DATA EXPIRED</h2>
+            <p>
+               <i>
+         
+                  {{ $tanggalawal->isoFormat("dddd, DD MMMM Y") }} s/d {{ $tanggalakhir->isoFormat("dddd, DD MMMM Y") }}
+               </i>
+            </p>
+         </td>
+      </tr>
+   </table>
 
    <table width="100%" border="1">
       <thead>

@@ -78,11 +78,9 @@ background: linear-gradient(95deg, rgba(2,0,36,1) 3%, rgba(9,9,121,1) 19%, rgba(
   <aside class="main-sidebar mysidebar elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <h3 class="m-0 p-0 brand-image rounded-circle bg-light ">
       <div class=" px-2 mt-1">
-          SI
-        </div>
-      </h3>
+          <img src="{{ url('gambar', ['logokp.jpeg']) }}" alt="" class="brand-image  elevation-3">
+      </div>
       <span class="brand-text font-weight-light text-bold text-lg">
         <b>
           <center>
