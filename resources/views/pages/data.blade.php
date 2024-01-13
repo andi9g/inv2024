@@ -19,6 +19,10 @@
                @csrf
                <div class="modal-body">
                   <div class="form-group">
+                     <label for="kdbarang">Kode Barang</label>
+                     <input id="kdbarang" class="form-control" type="text" name="kdbarang" placeholder="masukan kode barang">
+                  </div>
+                  <div class="form-group">
                      <label for="namabarang">Nama Barang</label>
                      <input id="namabarang" class="form-control" type="text" name="namaitem" placeholder="masukan nama barang">
                   </div>
@@ -68,6 +72,7 @@
          </div>
       </div>
    </div>
+   
 
     <div class="container">
       <div class="card">
@@ -75,6 +80,13 @@
             <div class="row">
                <div class="col-md-5">
                   <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#tambahdata">Tambah Data</button>
+
+                  <form action="{{ route('cetak.data', []) }}" method="GET" target="_blank" class="d-inline">
+                     <input type="text" name="keyword" value="{{ $keyword }}" hidden id="">
+                     <button class="btn btn-secondary" type="submit">
+                        <i class="fa fa-print"></i>Cetak
+                     </button>
+                  </form>
                </div>
                <div class="col-md-7">
                   <form action="{{ url()->current() }}">
@@ -109,6 +121,7 @@
                <thead>
                   <tr>
                      <th width="5px">No</th>
+                     <th>KD Barang</th>
                      <th>Nama Barang</th>
                      <th>Harga</th>
                      <th>Stok</th>
@@ -120,6 +133,7 @@
                   @foreach ($data as $item)
                       <tr>
                         <td>{{ $loop->iteration + $data->firstItem() - 1 }}</td>
+                        <td>{{ ($item->kdbarang) }}</td>
                         <td>{{ $item->namaitem }}</td>
                         <td>Rp{{ number_format($item->hargaitem, 0, ",", ".")}}</td>
                         <td>{{ $item->stok." ".$item->satuan->satuan}}</td>
@@ -145,6 +159,10 @@
                                  @csrf
                                  @method("PUT")
                                  <div class="modal-body">
+                                    <div class="form-group">
+                                       <label for="kdbarang">Kode Barang</label>
+                                       <input id="kdbarang" class="form-control" type="text" name="kdbarang" placeholder="masukan nama barang" value="{{ $item->kdbarang }}">
+                                    </div>
                                     <div class="form-group">
                                        <label for="namabarang">Nama Barang</label>
                                        <input id="namabarang" class="form-control" type="text" name="namaitem" placeholder="masukan nama barang" value="{{ $item->namaitem }}">

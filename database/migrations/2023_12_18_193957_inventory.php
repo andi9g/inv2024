@@ -16,6 +16,7 @@ class Inventory extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->bigIncrements('iditem');
+            $table->string("kdbarang")->unique();
             $table->integer("idsatuan");
             $table->integer("idketerangan");
             $table->String("namaitem")->unique();

@@ -8,6 +8,7 @@ use App\Models\satuanM;
 use App\Models\itemhabisM;
 use App\Models\itemexpiredM;
 use Illuminate\Http\Request;
+use PDF;
 
 class itemC extends Controller
 {
@@ -39,6 +40,30 @@ class itemC extends Controller
         ]);
         
 
+    }
+
+    function cetak(Request $request) {
+        $keyword = empty($request->keyword)?'':$request->keyword;
+        $keterangan = empty($request->keterangan)?1:$request->keterangan;
+
+        $dataketerangan = keteranganM::get();
+        $datasatuan = satuanM::get();
+
+        $data = itemM::where("idketerangan", $keterangan)
+        ->where("namaitem", "like", "%$keyword%")
+        ->select("item.*")
+        ->selectRaw("hargaitem * stok as total")
+        ->get();
+
+        $pdf = PDF::loadView("pages.laporan.data", [
+            "keyword" => $keyword,
+            "keterangan" => $keterangan,
+            "data" => $data,
+            "dataketerangan" => $dataketerangan,
+            "datasatuan" => $datasatuan,
+        ]);
+
+        return $pdf->stream("laporan.pdf");
     }
 
     public function keluar(Request $request)

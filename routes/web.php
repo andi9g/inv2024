@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
    Route::resource('item', "itemC");
    Route::get("keluar", "itemC@keluar");
    Route::post('stok/{iditem}/ubah', "itemC@ubahstok")->name("ubah.stok");
+   Route::get("cetak/item", "itemC@cetak")->name("cetak.data");
    
    //barang habis
    Route::get("habis", "itemhabisC@index");
