@@ -49,6 +49,7 @@
                <thead>
                   <tr>
                      <th width="5px">No</th>
+                     <th>Kode Barang</th>
                      <th>Nama Barang</th>
                      <th>Harga</th>
                      <th>Stok</th>
@@ -60,6 +61,7 @@
                   @foreach ($data as $item)
                       <tr>
                         <td>{{ $loop->iteration + $data->firstItem() - 1 }}</td>
+                        <td>{{ $item->kdbarang }}</td>
                         <td>{{ $item->namaitem }}</td>
                         <td>Rp{{ number_format($item->hargaitem, 0, ",", ".")}}</td>
                         <td>{{ $item->stok." ".$item->satuan->satuan}}</td>

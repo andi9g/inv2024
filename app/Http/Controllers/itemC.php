@@ -79,7 +79,7 @@ class itemC extends Controller
         ->paginate(15);
 
         $data->appends($request->all());
-
+        
         return view("pages.datakeluar", [
             "keyword" => $keyword,
             "keterangan" => $keterangan,

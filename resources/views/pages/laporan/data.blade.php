@@ -83,6 +83,20 @@
       </tfoot>
    </table>
 
+   <br>
+   <table width="100%">
+      <tr>
+         <td width="60%"></td>
+         <td width="30%" align="center">
+            <p>{{ \Carbon\Carbon::parse(date("Y-m-d"))->isoFormat("dddd, DD MMMM Y") }}</p>
+            <br>
+            <br>
+            <br>
+            <p>ADMIN</p>
+         </td>
+      </tr>
+   </table>
+
 
 </body>
 </html>

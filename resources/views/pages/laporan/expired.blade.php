@@ -50,6 +50,7 @@
          <tr>
             <th width="5px">No</th>
             <th width="20px">Tanggal</th>
+            <th>Kode Barang</th>
             <th>Nama Barang</th>
             <th>Jumlah</th>
             <th>Harga</th>
@@ -62,6 +63,7 @@
          <tr>
             <td align="center">{{ $loop->iteration }}</td>
             <td nowrap>{{ date("d/m/Y", strtotime($item->tanggal)) }}</td>
+            <td>{{ $item->item->kdbarang }}</td>
             <td>{{ $item->item->namaitem }}</td>
             <td>{{ $item->stok }}</td>
             <td>Rp{{ number_format($item->hargaitem, 0, ",", ".") }}</td>
@@ -85,6 +87,20 @@
             <th colspan="3">Rp{{ number_format($data->sum("total"), 0, ",", ".") }}</th>
          </tr>
       </tfoot>
+   </table>
+
+   <br>
+   <table width="100%">
+      <tr>
+         <td width="60%"></td>
+         <td width="30%" align="center">
+            <p>{{ \Carbon\Carbon::parse(date("Y-m-d"))->isoFormat("dddd, DD MMMM Y") }}</p>
+            <br>
+            <br>
+            <br>
+            <p>ADMIN</p>
+         </td>
+      </tr>
    </table>
 
 </body>

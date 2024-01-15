@@ -185,7 +185,7 @@ background: linear-gradient(95deg, rgba(2,0,36,1) 3%, rgba(9,9,121,1) 19%, rgba(
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; {{date('Y')}} <a href="https://adminlte.io">ANDI RIZKY BAYU PUTRA</a>.</strong>
+    <strong>Copyright &copy; {{date('Y')}} <a href="https://adminlte.io"></a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
